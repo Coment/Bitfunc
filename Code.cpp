@@ -6,13 +6,20 @@ void Zamina (unsigned long &n1 , unsigned long &n2)
 {
 	//n1 = n1^2;
 	//n2 = n2^2;
-int i=1 ; int j= i<<3; int k=n1&j;int o=1;int b=o<<2; int f = n1&b;n1=n1^k;n1=n1^f;
+       //int i=1 ; int j= i<<3; int k=n1&j;int o=1;int b=o<<2; int f = n1&b;n1=n1^k;n1=n1^f;
 }
 
 // lesson 3
-int Perevirka (unsigned long n1, unsigned long n2)
+int Perevirka (unsigned long n , int p1 , int p2 )
 {
-  return  (((n1&2)>>1)^((n2&2)>>1));
+  int i =1 ;
+  i=i<<p1-1;
+  unsigned long ni = n&i;
+  int j=1;
+  j=j<<p2 -1;
+  unsigned long nj = n&j;
+  
+  return (ni>>p1-1)^(nj>>p2-1) ;
 }
 
 //lesson 5
@@ -35,8 +42,11 @@ int main()
 {
    unsigned long number1 = 9;
    unsigned long number2 = 3;
-
-   cout<<Perevirka(number1,number2)<<endl;
+   unsigned long n=7;
+   int p1 = 3;
+   int p2 = 1;
+   
+   cout<<Perevirka(unsigned long n , int p1 , int p2)<<endl;
   
    Zamina (number1,number2);
    cout<< number1 <<","<< number2 <<endl;
